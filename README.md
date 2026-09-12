@@ -41,9 +41,6 @@ session rather than editing here.
 - [ ] `FORM_ENDPOINT` near the bottom of `index.html` is empty, so the contact
       form confirms but sends nothing. Create a Formspree (or Basin) form, paste
       the endpoint URL between the quotes, and test it once.
-- [ ] `assets/favicon.png` and `assets/og-image.png` are referenced but not yet
-      present. The og-image is what appears when the site is shared on LinkedIn;
-      1200×630.
 - [ ] Hero video: the markup sits commented out at the top of `<section id="top">`
       in `index.html`, waiting on clean landscape footage. The existing clips are
       square with a burned-in watermark, so the wide hero band crops them badly.
