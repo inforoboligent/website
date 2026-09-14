@@ -27,31 +27,34 @@
     --color-bg: #f8fafc; --color-text: #0f172a; --color-divider: #0f172a;
     --color-neutral-100: #eef2f7; --color-neutral-200: #e2e8f0;
     --color-neutral-300: #cbd5e1; --color-neutral-700: #334155;
-    --color-band: #0f172a; --color-band-ink: #f8fafc; --color-on-accent: #f8fafc;
-    --color-accent: #059669; --color-accent-fill: #04624a;
-    --color-accent-300: #6ee7bd; --color-accent-600: #047857; --color-accent-700: #04624a;
-    --color-accent-2: #04624a; --color-accent-2-300: #6ee7bd;
-    --color-accent-2-600: #035240; --color-accent-2-700: #04624a;
+    --color-band: #0f172a; --color-band-ink: #f8fafc;
+  --color-mid: #1b2637; --color-mid-ink: #f8fafc; --color-on-accent: #0f172a;
+    --color-accent: #6ee7bd; --color-accent-fill: #6ee7bd;
+    --color-accent-300: #6ee7bd; --color-accent-600: #46cfa2; --color-accent-700: #0f172a;
+    --color-accent-2: #6ee7bd; --color-accent-2-300: #6ee7bd;
+    --color-accent-2-600: #46cfa2; --color-accent-2-700: #0f172a;
     --color-danger: #c2410c;
   }
   body { background: #f8fafc; }
   html { scroll-behavior: smooth; }
   body { margin: 0; }
-  a { color: var(--color-accent-700); }
-  a:hover { color: var(--color-accent); }
+  a { color: var(--color-text); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--color-neutral-700); }
   ::selection { background: var(--color-accent); color: var(--color-on-accent); }
   summary::-webkit-details-marker { display: none; }
   summary::after { content: "+"; font-family: var(--font-heading); font-weight: 800; font-size: 20px; line-height: 1; color: var(--color-accent-700); padding-left: 16px; }
   details[open] summary::after { content: "\2013"; }
-  summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
-  input[type=range] { accent-color: var(--color-accent); }
+  summary:focus-visible { outline: 2px solid var(--color-accent-700); outline-offset: 2px; }
+  input[type=range] { accent-color: var(--color-accent-300); }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* the sticky header sits at ~62px; anchors need to clear it */
+section[id] { scroll-margin-top: 66px; }
 
 /* hover states lifted out of the source markup */
 [data-hv="0"]:hover { background: var(--color-accent-600); }
 [data-hv="1"]:hover { background: var(--color-accent-600); }
 [data-hv="2"]:hover { background: color-mix(in srgb, var(--color-band-ink) 12%, transparent); }
-[data-hv="3"]:hover { background: var(--color-accent); }
+[data-hv="3"]:hover { background: var(--color-accent); color: var(--color-text); }
 [data-hv="4"]:hover { background: var(--color-neutral-100); }
 [data-hv="5"]:hover { background: var(--color-accent-600); }
 [data-hv="6"]:hover { background: var(--color-neutral-100); }
@@ -62,12 +65,12 @@
 [data-hv="11"]:hover { background: var(--color-accent-600); }
 [data-hv="12"]:hover { background: var(--color-neutral-100); }
 [data-hv="13"]:hover { background: var(--color-accent-600); }
-[data-hv="14"]:hover { background: var(--color-accent-700); }
+[data-hv="14"]:hover { background: var(--color-accent-600); }
 [data-hv="15"]:hover { background: var(--color-neutral-100); }
 </style>
 </head>
 <body>
-<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); overflow-x: hidden;">
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body);">
 
   <header style="position: sticky; top: 0; z-index: 50; background: var(--color-bg); border-bottom: 2px solid var(--color-divider);">
     <div style="max-width: 1280px; margin: 0 auto; padding: 8px 28px; display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px;">
@@ -95,7 +98,7 @@
     </div>
     <div style="max-width: 1280px; margin: 0 auto; padding: clamp(40px, 5vw, 72px) 28px clamp(48px, 6vw, 88px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(24px, 4vw, 56px); align-items: end;">
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
-        <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-300); border: 1px solid var(--color-accent); padding: 6px 12px;">Designed and built in Austin, Texas</span>
+        <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-300); border: 1px solid var(--color-accent-300); padding: 6px 12px;">Designed and built in Austin, Texas</span>
         <h1 style="margin: 0; max-width: 18ch; font-size: clamp(38px, 5.2vw, 72px); line-height: 0.98; letter-spacing: -0.03em; text-wrap: balance; color: var(--color-band-ink);">Physical AI for the work robots still can&rsquo;t do</h1>
       </div>
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
@@ -118,37 +121,33 @@
   </section>
 
   
-  <section style="background: var(--color-band); color: var(--color-band-ink); border-bottom: 2px solid var(--color-divider);">
+  <section style="background: var(--color-mid); color: var(--color-mid-ink); border-bottom: 2px solid var(--color-divider);">
     <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
       <div>
         <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-300);">Impact force on human contact</div>
-        <h2 style="margin: 18px 0 0; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -0.025em; color: var(--color-band-ink);">Roughly a tenth of the force</h2>
-        <p style="margin: 20px 0 0; max-width: 42ch; font-size: 15px; line-height: 1.65; color: var(--color-band-ink);">In our own comparative testing Robin generates roughly a tenth of the impact force of a conventional rigid arm under equivalent contact conditions. That&rsquo;s the engineering basis for working without fencing &mdash; not a software speed limit.</p>
-        <div style="margin-top: 28px; padding-top: 20px; border-top: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
-          <label for="rig-speed" style="display: block; font-size: 13px; letter-spacing: 0.02em; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); margin-bottom: 10px;">Drag to increase contact speed</label>
+        <h2 style="margin: 18px 0 0; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -0.025em; color: var(--color-mid-ink);">Roughly a tenth of the force</h2>
+        <p style="margin: 20px 0 0; max-width: 42ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">In our own comparative testing Robin generates roughly a tenth of the impact force of a conventional rigid arm under equivalent contact conditions. That&rsquo;s the engineering basis for working without fencing &mdash; not a software speed limit.</p>
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">
+          <label for="rig-speed" style="display: block; font-size: 13px; letter-spacing: 0.02em; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); margin-bottom: 10px;">Drag to increase contact speed</label>
           <input id="rig-speed" type="range" min="0" max="100" step="1" value="0" style="width: 100%; max-width: 420px; height: 28px; cursor: grab;" />
         </div>
       </div>
       <div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: color-mix(in srgb, var(--color-band-ink) 35%, transparent); border: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
-          <div style="background: var(--color-band); padding: 20px 18px;">
-            <div style="font-size: 12px; line-height: 1.35; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); min-height: 3.2em;">Conventional rigid industrial arm</div>
-            <div style="position: relative; height: 210px; margin-top: 14px; background: color-mix(in srgb, var(--color-band-ink) 8%, transparent); border: 1px solid color-mix(in srgb, var(--color-band-ink) 30%, transparent); overflow: hidden;">
-              <div style="position: absolute; left: 0; right: 0; bottom: 0; background: var(--color-danger); height: 0%;" data-bar></div>
-              <div style="position: absolute; left: 0; right: 0; bottom: 34%; border-top: 2px dashed color-mix(in srgb, var(--color-band-ink) 75%, transparent);"></div>
-              <span style="position: absolute; right: 4px; bottom: calc(34% + 6px); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-band-ink); background: var(--color-band); padding: 2px 5px;">human safety limit</span>
+        <div style="border: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent); padding: 24px 22px 20px;">
+          <div style="position: relative; height: 260px; background: color-mix(in srgb, var(--color-mid-ink) 8%, transparent);">
+            <div style="position: absolute; inset: 0; display: flex; align-items: flex-end; gap: 14%; padding: 0 13%;">
+              <div style="flex: 1; height: 0%; background: color-mix(in srgb, var(--color-mid-ink) 42%, transparent);" data-bar></div>
+              <div style="flex: 1; height: 0%; background: var(--color-accent-300);" data-bar></div>
             </div>
+            <div style="position: absolute; left: 0; right: 0; bottom: 34%; border-top: 2px dashed color-mix(in srgb, var(--color-mid-ink) 75%, transparent);"></div>
+            <span style="position: absolute; right: 6px; bottom: calc(34% + 7px); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-mid-ink); background: var(--color-mid); padding: 2px 5px;">human safety limit</span>
           </div>
-          <div style="background: var(--color-band); padding: 20px 18px;">
-            <div style="font-size: 12px; line-height: 1.35; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); min-height: 3.2em;">Robin, compliant force-controlled actuators</div>
-            <div style="position: relative; height: 210px; margin-top: 14px; background: color-mix(in srgb, var(--color-band-ink) 8%, transparent); border: 1px solid color-mix(in srgb, var(--color-band-ink) 30%, transparent); overflow: hidden;">
-              <div style="position: absolute; left: 0; right: 0; bottom: 0; background: var(--color-accent); height: 0%;" data-bar></div>
-              <div style="position: absolute; left: 0; right: 0; bottom: 34%; border-top: 2px dashed color-mix(in srgb, var(--color-band-ink) 75%, transparent);"></div>
-              <span style="position: absolute; right: 4px; bottom: calc(34% + 6px); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-band-ink); background: var(--color-band); padding: 2px 5px;">human safety limit</span>
-            </div>
+          <div style="display: flex; gap: 14%; padding: 14px 13% 0;">
+            <div style="flex: 1; font-size: 12px; line-height: 1.35; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent);">Conventional rigid industrial arm</div>
+            <div style="flex: 1; font-size: 12px; line-height: 1.35; color: var(--color-mid-ink);">Robin, compliant force-controlled actuators</div>
           </div>
         </div>
-        <p style="margin: 14px 0 0; font-size: 12px; line-height: 1.45; color: color-mix(in srgb, var(--color-band-ink) 75%, transparent);">Illustrative diagram of the ratio, not test data. Both bars rise with contact speed; Robin&rsquo;s stays roughly a tenth as high, and below the limit a person can safely absorb. Certified figures follow formal testing.</p>
+        <p style="margin: 14px 0 0; font-size: 12px; line-height: 1.45; color: color-mix(in srgb, var(--color-mid-ink) 75%, transparent);">Illustrative diagram of the ratio, not test data. Both bars rise with contact speed; Robin&rsquo;s stays roughly a tenth as high, and below the limit a person can safely absorb. Certified figures follow formal testing.</p>
       </div>
     </div>
   </section>
@@ -178,7 +177,7 @@
         </div>
       </div>
 
-      <p data-reveal="1" style="margin: 32px 0 0; max-width: 68ch; font-size: 17px; line-height: 1.55;">A fix ships as a single update, not an integrator project. A new capability arrives on the robot you already have. And because the same team owns the actuator and the model, the model can learn from a signal that most robots cannot even produce.</p>
+      <p data-reveal="1" style="margin: 32px 0 0; max-width: 68ch; font-size: 16px; line-height: 1.6;">A fix ships as a single update, not an integrator project. A new capability arrives on the robot you already have. And because the same team owns the actuator and the model, the model can learn from a signal that most robots cannot even produce.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 2px; background: var(--color-divider); border: 2px solid var(--color-divider); margin-top: clamp(32px, 4vw, 56px);">
         <figure style="margin: 0; background: var(--color-bg);">
@@ -197,39 +196,39 @@
     </div>
   </section>
 
-  <section id="ai" style="background: var(--color-band); color: var(--color-band-ink); border-bottom: 2px solid var(--color-divider);">
+  <section id="ai" style="background: var(--color-mid); color: var(--color-mid-ink); border-bottom: 2px solid var(--color-divider);">
     <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-300);">Physical AI</div>
-      <h2 style="margin: 18px 0 0; max-width: 26ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em; color: var(--color-band-ink);">A specialist model, not a general-purpose one</h2>
-      <p style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--color-band-ink);">General-purpose robot foundation models and our model solve different problems. Ours is built for one job: reliable, contact-rich industrial manipulation. That narrowness is the point &mdash; it&rsquo;s how the model reaches production-grade reliability on a fraction of the data and compute.</p>
+      <h2 style="margin: 18px 0 0; max-width: 26ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em; color: var(--color-mid-ink);">A specialist model, not a general-purpose one</h2>
+      <p style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">General-purpose robot foundation models and our model solve different problems. Ours is built for one job: reliable, contact-rich industrial manipulation. That narrowness is the point &mdash; it&rsquo;s how the model reaches production-grade reliability on a fraction of the data and compute.</p>
 
-      <div style="margin-top: clamp(32px, 4vw, 56px); border-top: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
+      <div style="margin-top: clamp(32px, 4vw, 56px); border-top: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-300);">Feels, not just sees</div>
           <div>
-            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-band-ink);">Force is a training modality, not a safety cutout</h3>
-            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-band-ink);">Our model learns from force alongside vision, with force sensing at every joint feeding the policy directly. Insertion, hand-offs and gentle placing succeed because the model reacts to what the arms feel, not only to what the cameras see. It&rsquo;s a modality most models ignore, because most robots can&rsquo;t generate it.</p>
+            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-mid-ink);">Force is a training modality, not a safety cutout</h3>
+            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-mid-ink);">Our model learns from force alongside vision, with force sensing at every joint feeding the policy directly. Insertion, hand-offs and gentle placing succeed because the model reacts to what the arms feel, not only to what the cameras see. It&rsquo;s a modality most models ignore, because most robots can&rsquo;t generate it.</p>
           </div>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-300);">Data-efficient</div>
           <div>
-            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-band-ink);">Around a hundred demonstrations, not internet-scale datasets</h3>
-            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-band-ink);">A floor operator teaches a new task in VR while the system records episodes. Processing, training and deployment run from the same browser panel. New tasks arrive in days, without fleet-scale data collection and without an integrator.</p>
+            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-mid-ink);">Around a hundred demonstrations, not internet-scale datasets</h3>
+            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-mid-ink);">A floor operator teaches a new task in VR while the system records episodes. Processing, training and deployment run from the same browser panel. New tasks arrive in days, without fleet-scale data collection and without an integrator.</p>
           </div>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-300);">Bounded autonomy</div>
           <div>
-            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-band-ink);">Learned skills inside deterministic execution logic</h3>
-            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-band-ink);">The policy handles the contact-rich part; behavior trees handle sequencing, retries and recovery. Autonomy stays bounded and auditable rather than open-ended, which is what a production line actually needs &mdash; and what lets the robot recover from a fault without pulling an operator over.</p>
+            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-mid-ink);">Learned skills inside deterministic execution logic</h3>
+            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-mid-ink);">The policy handles the contact-rich part; behavior trees handle sequencing, retries and recovery. Autonomy stays bounded and auditable rather than open-ended, which is what a production line actually needs &mdash; and what lets the robot recover from a fault without pulling an operator over.</p>
           </div>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent-300);">Runs onboard</div>
           <div>
-            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-band-ink);">Real-time on the robot, with no cloud in the control loop</h3>
-            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-band-ink);">The full stack runs on the machine. Deploy cloud-connected, on-premise, or fully air-gapped. No external dependency between sensing and acting, which is what makes it deployable inside enterprise IT and safety review.</p>
+            <h3 style="margin: 0; font-size: 21px; letter-spacing: -0.015em; color: var(--color-mid-ink);">Real-time on the robot, with no cloud in the control loop</h3>
+            <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-mid-ink);">The full stack runs on the machine. Deploy cloud-connected, on-premise, or fully air-gapped. No external dependency between sensing and acting, which is what makes it deployable inside enterprise IT and safety review.</p>
           </div>
         </div>
       </div>
@@ -238,54 +237,54 @@
         <table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px;">
           <thead>
             <tr>
-              <th style="text-align: left; padding: 14px 16px; font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-band-ink) 75%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent); width: 22%;">Dimension</th>
-              <th style="text-align: left; padding: 14px 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-band-ink); border-bottom: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">Generalist foundation models</th>
-              <th style="text-align: left; padding: 14px 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-band-ink); border-bottom: 2px solid var(--color-accent);">Our model</th>
+              <th style="text-align: left; padding: 14px 16px; font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-mid-ink) 75%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent); width: 22%;">Dimension</th>
+              <th style="text-align: left; padding: 14px 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-mid-ink); border-bottom: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">Generalist foundation models</th>
+              <th style="text-align: left; padding: 14px 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; color: var(--color-mid-ink); border-bottom: 2px solid var(--color-accent-300);">Our model</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Purpose</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">One model for every robot and task</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-band-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Purpose-built for industrial manipulation</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Purpose</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">One model for every robot and task</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-mid-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Purpose-built for industrial manipulation</td>
             </tr>
             <tr>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Optimized for</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Breadth of capability</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-band-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Production-grade task reliability</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Optimized for</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Breadth of capability</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-mid-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Production-grade task reliability</td>
             </tr>
             <tr>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Contact handling</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Vision-first, position-centric</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-band-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Force-native &mdash; feels and reacts to contact</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Contact handling</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Vision-first, position-centric</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-mid-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Force-native &mdash; feels and reacts to contact</td>
             </tr>
             <tr>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Data required</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Internet-scale datasets</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-band-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Days of operator demonstrations</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Data required</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Internet-scale datasets</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-mid-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Days of operator demonstrations</td>
             </tr>
             <tr>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Compute</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Data-center class</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-band-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-band-ink) 22%, transparent);">Real time, on the robot</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Compute</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Data-center class</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-mid-ink); border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">Real time, on the robot</td>
             </tr>
             <tr>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent);">IP position</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-band-ink) 80%, transparent);">Openly published</td>
-              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-band-ink);">Proprietary, developed in-house</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent);">IP position</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: color-mix(in srgb, var(--color-mid-ink) 80%, transparent);">Openly published</td>
+              <td style="padding: 14px 16px; vertical-align: top; color: var(--color-mid-ink);">Proprietary, developed in-house</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <figure style="margin: clamp(32px, 4vw, 56px) 0 0; max-width: 560px; border: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">
-        <div style="position: relative; aspect-ratio: 1 / 1; background: color-mix(in srgb, var(--color-band-ink) 8%, transparent);">
-          <video src="videos/todays-capability.mp4" muted loop playsinline preload="metadata" data-loop="1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: grayscale(1) contrast(1.05);"></video>
+      <figure style="margin: clamp(32px, 4vw, 56px) 0 0; max-width: 560px; border: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">
+        <div style="position: relative; aspect-ratio: 16 / 9; background: #000000;">
+          <video src="videos/todays-capability.mp4" muted loop playsinline preload="metadata" data-loop="1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05);"></video>
         </div>
-        <figcaption style="padding: 14px 18px; font-size: 13px; line-height: 1.4; color: var(--color-band-ink); border-top: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent);">Skills demonstrated in production-class environments.</figcaption>
+        <figcaption style="padding: 14px 18px; font-size: 13px; line-height: 1.4; color: var(--color-mid-ink); border-top: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">Skills demonstrated in production-class environments.</figcaption>
       </figure>
 
-      <p style="margin: 28px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--color-band-ink);">The model, the training pipeline and the actuation it controls are developed under one roof. Capabilities reach customers as software updates on the robot they already have.</p>
+      <p style="margin: 28px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">The model, the training pipeline and the actuation it controls are developed under one roof. Capabilities reach customers as software updates on the robot they already have.</p>
     </div>
   </section>
 
@@ -415,7 +414,7 @@
           <li style="font-size: 15px; line-height: 1.5; padding: 12px 0; border-top: 1px solid var(--color-neutral-300);">Remote support, with on-site visits when remote diagnosis isn&rsquo;t enough</li>
           <li style="font-size: 15px; line-height: 1.5; padding: 12px 0; border-top: 1px solid var(--color-neutral-300);">Installation and commissioning of the initial deployment</li>
         </ul>
-        <p style="margin: 24px 0 0; max-width: 62ch; font-size: 15px; line-height: 1.6;">Fault codes and safety events are forwarded to our service team automatically. For registered units a ticket opens when the fault is logged &mdash; nobody has to file anything.</p>
+        <p style="margin: 24px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">Fault codes and safety events are forwarded to our service team automatically. For registered units a ticket opens when the fault is logged &mdash; nobody has to file anything.</p>
       </div>
     </div>
   </section>
@@ -457,8 +456,8 @@
       <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Five open roles</h2>
       <p data-reveal="1" style="margin: 22px 0 0; max-width: 58ch; font-size: 16px; line-height: 1.6;">Hardware, controls and AI sit in the same building in Round Rock. Everyone here touches something that ships to a customer.</p>
 
-      <div style="margin-top: clamp(32px, 4vw, 48px); border-top: 2px solid var(--color-divider);">
-        <details style="border-bottom: 2px solid var(--color-divider);">
+      <div style="margin-top: clamp(32px, 4vw, 48px); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);">
+        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
           <summary style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="4">
             <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Tech Lead, Robot Management System</span>
             <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
@@ -471,7 +470,7 @@
             </div>
           </div>
         </details>
-        <details style="border-bottom: 2px solid var(--color-divider);">
+        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
           <summary style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="6">
             <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Tech Lead, Robot Control</span>
             <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
@@ -484,7 +483,7 @@
             </div>
           </div>
         </details>
-        <details style="border-bottom: 2px solid var(--color-divider);">
+        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
           <summary style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="8">
             <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">AI Engineer, Robot Data and Evaluation</span>
             <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
@@ -497,7 +496,7 @@
             </div>
           </div>
         </details>
-        <details style="border-bottom: 2px solid var(--color-divider);">
+        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
           <summary style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="10">
             <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Field Integration Engineer</span>
             <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site, with travel</span>
@@ -510,7 +509,7 @@
             </div>
           </div>
         </details>
-        <details style="border-bottom: 2px solid var(--color-divider);">
+        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
           <summary style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="12">
             <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Manufacturing Quality Engineer</span>
             <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
@@ -529,18 +528,18 @@
     </div>
   </section>
 
-  <section id="contact" style="background: var(--color-accent-2); color: var(--color-on-accent);">
+  <section id="contact" style="background: color-mix(in srgb, var(--color-accent) 22%, var(--color-bg)); color: var(--color-text);">
     <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
       <div>
-        <h2 style="margin: 0; max-width: 22ch; font-size: clamp(32px, 4.6vw, 62px); line-height: 1.0; letter-spacing: -0.03em; color: var(--color-on-accent);">Bring us one station you&rsquo;ve been told can&rsquo;t be automated</h2>
-        <p style="margin: 24px 0 0; max-width: 46ch; font-size: 17px; line-height: 1.55; color: var(--color-on-accent);">If it&rsquo;s high-mix, hard to fixture, or too close to people to fence, that&rsquo;s the one we want to see. Send a photo and a cycle time and we&rsquo;ll tell you honestly whether Robin is the answer.</p>
-        <div style="margin-top: 28px; padding-top: 22px; border-top: 2px solid color-mix(in srgb, var(--color-on-accent) 55%, transparent); font-size: 15px; line-height: 1.7; color: var(--color-on-accent);">
+        <h2 style="margin: 0; max-width: 22ch; font-size: clamp(32px, 4.6vw, 62px); line-height: 1.0; letter-spacing: -0.03em; color: var(--color-text);">Bring us one station you&rsquo;ve been told can&rsquo;t be automated</h2>
+        <p style="margin: 24px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-text);">If it&rsquo;s high-mix, hard to fixture, or too close to people to fence, that&rsquo;s the one we want to see. Send a photo and a cycle time and we&rsquo;ll tell you honestly whether Robin is the answer.</p>
+        <div style="margin-top: 28px; padding-top: 22px; border-top: 2px solid color-mix(in srgb, var(--color-text) 55%, transparent); font-size: 15px; line-height: 1.7; color: var(--color-text);">
           2712 Meister Place, Round Rock, TX 78664<br />
-          <a href="mailto:info@roboligent.com" style="color: var(--color-on-accent);">info@roboligent.com</a><br />
-          <a href="tel:+15127030454" style="color: var(--color-on-accent);">+1 512-703-0454</a>
+          <a href="mailto:info@roboligent.com" style="color: var(--color-text);">info@roboligent.com</a><br />
+          <a href="tel:+15127030454" style="color: var(--color-text);">+1 512-703-0454</a>
         </div>
       </div>
-      <form id="pilot-form" method="POST" style="background: var(--color-bg); color: var(--color-text); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
+      <form id="pilot-form" name="pilot" method="POST" data-netlify="true" data-netlify-honeypot="_gotcha" style="background: var(--color-bg); color: var(--color-text); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
         <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Start a pilot</div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 18px;">
           <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Name
@@ -556,8 +555,9 @@
         <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">The station you have in mind
           <textarea class="input" name="station" rows="4" placeholder="What the task is, how it&rsquo;s done today, and the cycle time." style="font-size: 15px; resize: vertical; font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);"></textarea>
         </label>
+        <input type="hidden" name="form-name" value="pilot" />
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" />
-        <button type="submit" style="align-self: flex-start; font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: var(--color-band-ink); background: var(--color-band); border: 0; padding: 14px 22px; cursor: pointer; text-align: left;" data-hv="14">Send it over</button>
+        <button type="submit" style="align-self: flex-start; font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: var(--color-text); background: var(--color-accent); border: 0; padding: 14px 22px; cursor: pointer; text-align: left;" data-hv="14">Send it over</button>
         <p data-form-note style="margin: 0; font-size: 12px; line-height: 1.5; color: var(--color-neutral-700);">We reply within two business days. No newsletter, no sales sequence.</p>
       </form>
     </div>
@@ -664,7 +664,10 @@
   }
   if (slider) {
     slider.addEventListener('input', function () { touched = true; clearInterval(sweep); draw(+slider.value); });
-    if (!reduce) {
+    /* gate the sweep on the rig entering view — ungated it finishes in 1.6s,
+       long before the visitor scrolls this far */
+    function startSweep() {
+      if (sweep || touched) return;
       var n = 0;
       sweep = setInterval(function () {
         if (touched) { clearInterval(sweep); return; }
@@ -673,24 +676,41 @@
         if (n >= 88) clearInterval(sweep);
       }, 26);
     }
+    if (!reduce) {
+      if ('IntersectionObserver' in window) {
+        var sio = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            sio.unobserve(e.target);
+            startSweep();
+          });
+        }, { threshold: 0.6 });
+        sio.observe(slider);
+      } else {
+        startSweep();
+      }
+    }
   }
 
-  /* contact form: posts to FORM_ENDPOINT below. Empty endpoint = prototype mode. */
-  var FORM_ENDPOINT = '';
+  /* contact form: handled by Netlify Forms. The markup carries data-netlify,
+     so Netlify registers the form at deploy and emails each submission.
+     Posting back to this page keeps the visitor here instead of sending them
+     to Netlify's own success page. Outside Netlify (local preview) the POST
+     404s and the catch branch points at the mailbox. */
   var form = document.getElementById('pilot-form');
   if (form) {
     var btn = form.querySelector('button[type=submit]');
     var note = form.querySelector('[data-form-note]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!FORM_ENDPOINT) {
-        btn.textContent = 'Sent';
-        note.textContent = 'No form endpoint is set yet, so nothing was transmitted.';
-        return;
-      }
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      fetch(FORM_ENDPOINT, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch(location.pathname, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
         .then(function (res) {
           if (!res.ok) throw new Error(res.status);
           form.reset();
