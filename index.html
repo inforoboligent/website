@@ -559,7 +559,7 @@ section[id] { scroll-margin-top: 72px; }
           <a href="tel:+15127030454" style="color: var(--color-text);">+1 512-703-0454</a>
         </div>
       </div>
-      <form id="pilot-form" name="pilot" method="POST" data-netlify="true" data-netlify-honeypot="_gotcha" style="background: var(--color-bg); color: var(--color-text); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
+      <form id="pilot-form" name="pilot" method="POST" style="background: var(--color-bg); color: var(--color-text); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
         <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Start a pilot</div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 18px;">
           <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Name
@@ -770,24 +770,45 @@ section[id] { scroll-margin-top: 72px; }
     }
   }
 
-  /* contact form: handled by Netlify Forms. The markup carries data-netlify,
-     so Netlify registers the form at deploy and emails each submission.
-     Posting back to this page keeps the visitor here instead of sending them
-     to Netlify's own success page. Outside Netlify (local preview) the POST
-     404s and the catch branch points at the mailbox. */
+  /* contact form.
+     FORM_ENDPOINT empty  -> no backend (GitHub Pages): submit composes a
+       pre-filled mail to info@roboligent.com, so nothing fails silently.
+     FORM_ENDPOINT set    -> POST JSON to it (Formspree or equivalent) and
+       keep the visitor on the page. Set the constant, nothing else. */
+  var FORM_ENDPOINT = '';
+  var MAILBOX = 'info@roboligent.com';
+
   var form = document.getElementById('pilot-form');
   if (form) {
     var btn = form.querySelector('button[type=submit]');
     var note = form.querySelector('[data-form-note]');
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var data = new FormData(form);
+      if (data.get('_gotcha')) return;
+
+      if (!FORM_ENDPOINT) {
+        var lines = [];
+        data.forEach(function (v, k) {
+          if (k.charAt(0) === '_' || !String(v).trim()) return;
+          lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ': ' + v);
+        });
+        window.location.href = 'mailto:' + MAILBOX +
+          '?subject=' + encodeURIComponent('Pilot inquiry') +
+          '&body=' + encodeURIComponent(lines.join('\n'));
+        note.textContent = 'Opening your mail app — send the message and we will reply within two business days.';
+        return;
+      }
+
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      var body = new URLSearchParams(new FormData(form)).toString();
-      fetch(location.pathname, {
+      var payload = {};
+      data.forEach(function (v, k) { if (k.charAt(0) !== '_') payload[k] = v; });
+      fetch(FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
       })
         .then(function (res) {
           if (!res.ok) throw new Error(res.status);
@@ -798,7 +819,7 @@ section[id] { scroll-margin-top: 72px; }
         .catch(function () {
           btn.disabled = false;
           btn.textContent = 'Try again';
-          note.textContent = 'That did not go through. Email info@roboligent.com and we will pick it up there.';
+          note.textContent = 'That did not go through. Email ' + MAILBOX + ' and we will pick it up there.';
         });
     });
   }
