@@ -75,7 +75,7 @@ section[id] { scroll-margin-top: 72px; }
 <div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body);">
 
   <header style="position: sticky; top: 0; z-index: 50; background: var(--color-bg); border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 8px 28px; display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: 8px clamp(24px, 3.5vw, 56px); display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px;">
       <a href="#top" style="display: flex; align-items: center; margin-right: auto; order: 0; text-decoration: none;"><img src="assets/roboligent-logo-dark.png" alt="Roboligent" data-logo="1" style="display: block; height: 24px; width: auto;" /></a>
       <nav id="nav" style="order: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0 20px;">
         <a href="#stack" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Stack</a>
@@ -101,13 +101,13 @@ section[id] { scroll-margin-top: 72px; }
       <div style="position: absolute; inset: 0; background: var(--color-band); mix-blend-mode: color; opacity: 0.62; pointer-events: none;"></div>
       <div style="position: absolute; inset: 0; background: linear-gradient(0deg, var(--color-band) 0%, color-mix(in srgb, var(--color-band) 94%, transparent) 8%, color-mix(in srgb, var(--color-band) 78%, transparent) 17%, color-mix(in srgb, var(--color-band) 56%, transparent) 26%, color-mix(in srgb, var(--color-band) 35%, transparent) 35%, color-mix(in srgb, var(--color-band) 18%, transparent) 44%, color-mix(in srgb, var(--color-band) 7%, transparent) 52%, transparent 62%); pointer-events: none;"></div>
     </div>
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(40px, 5vw, 72px) 28px clamp(48px, 6vw, 88px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(24px, 4vw, 56px); align-items: end;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(40px, 5vw, 72px) clamp(24px, 3.5vw, 56px) clamp(48px, 6vw, 88px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(24px, 4vw, 56px); align-items: end;">
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
         <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-300); border: 1px solid var(--color-accent-300); padding: 6px 12px;">Designed and built in Austin, Texas</span>
         <h1 style="margin: 0; max-width: 18ch; font-size: clamp(38px, 5.2vw, 72px); line-height: 0.98; letter-spacing: -0.03em; text-wrap: balance; color: var(--color-band-ink);">Physical AI for the work robots still can&rsquo;t do</h1>
       </div>
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
-        <p style="margin: 0; max-width: 44ch; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--color-band-ink);">We build the soft actuation, the real-time force control, and the AI that runs on them. Robin is what happens when all three are designed together: a two-armed mobile robot that works safely beside people, without a cage.</p>
+        <p style="margin: 0; max-width: 52ch; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--color-band-ink);">We build the soft actuation, the real-time force control, and the AI that runs on them. Robin is what happens when all three are designed together: a two-armed mobile robot that works safely beside people, without a cage.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
           <a href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 22px;" data-hv="1">Start a pilot</a>
           <a href="#ai" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); border: 1px solid color-mix(in srgb, var(--color-band-ink) 55%, transparent); padding: 14px 22px;" data-hv="2">See the AI stack</a>
@@ -116,8 +116,8 @@ section[id] { scroll-margin-top: 72px; }
     </div>
   </section>
   <section style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
-      <p data-reveal="1" style="margin: 0; max-width: 34ch; font-family: var(--font-heading); font-weight: 800; font-size: clamp(26px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -0.025em;">The robot arm is the cheap part.</p>
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
+      <p data-reveal="1" style="margin: 0; max-width: 40ch; font-family: var(--font-heading); font-weight: 800; font-size: clamp(26px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -0.025em;">The robot arm is the cheap part.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: 36px; padding-top: 28px; border-top: 2px solid var(--color-divider);">
         <p data-reveal="1" style="margin: 0; font-size: 16px; line-height: 1.6;">The fencing, the fixtures, the guarding and the line rebuild around it are what cost you &mdash; and they&rsquo;re what make the cell impossible to move once it&rsquo;s built.</p>
         <p data-reveal="1" style="margin: 0; font-size: 16px; line-height: 1.6;">Even inside the fence, the economics break down. Every jam, drop or reset pulls a worker off their own job. A robot that can&rsquo;t recover on its own doesn&rsquo;t remove labor; it relocates it.</p>
@@ -127,7 +127,7 @@ section[id] { scroll-margin-top: 72px; }
 
   
   <section style="background: var(--color-mid); color: var(--color-mid-ink); border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start;">
       <div>
         <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-300);">Impact force on human contact</div>
         <h2 style="margin: 18px 0 0; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -0.025em; color: var(--color-mid-ink);">Roughly a tenth of the force</h2>
@@ -159,10 +159,10 @@ section[id] { scroll-margin-top: 72px; }
   
 
   <section id="stack" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">The stack</div>
       <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Three layers, one company</h2>
-      <p data-reveal="1" style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">Most robotics companies assemble off-the-shelf actuators, third-party perception, and a rented foundation model &mdash; and leave the customer to manage the seams between them. We build all three layers ourselves, because the thing that makes Robin work only exists where they meet.</p>
+      <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Most robotics companies assemble off-the-shelf actuators, third-party perception, and a rented foundation model &mdash; and leave the customer to manage the seams between them. We build all three layers ourselves, because the thing that makes Robin work only exists where they meet.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2px; background: var(--color-divider); border: 2px solid var(--color-divider); margin-top: clamp(32px, 4vw, 56px);">
         <div data-reveal="1" style="background: var(--color-bg); padding: 32px 26px;">
@@ -182,30 +182,30 @@ section[id] { scroll-margin-top: 72px; }
         </div>
       </div>
 
-      <p data-reveal="1" style="margin: 32px 0 0; max-width: 68ch; font-size: 16px; line-height: 1.6;">A fix ships as a single update, not an integrator project. A new capability arrives on the robot you already have. And because the same team owns the actuator and the model, the model can learn from a signal that most robots cannot even produce.</p>
+      <p data-reveal="1" style="margin: 32px 0 0; max-width: 82ch; font-size: 16px; line-height: 1.6;">A fix ships as a single update, not an integrator project. A new capability arrives on the robot you already have. And because the same team owns the actuator and the model, the model can learn from a signal that most robots cannot even produce.</p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 2px; background: var(--color-divider); border: 2px solid var(--color-divider); margin-top: clamp(32px, 4vw, 56px);">
-        <figure style="margin: 0; background: var(--color-bg); display: flex; flex-direction: column; height: 100%;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(20px, 2.5vw, 32px); margin-top: clamp(32px, 4vw, 56px);">
+        <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
           <div style="position: relative; aspect-ratio: 16 / 9; background: #000000;">
             <video src="videos/collision-resilience.mp4" muted loop playsinline preload="metadata" data-loop="1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: grayscale(1) contrast(1.05);"></video>
           </div>
-          <figcaption style="flex: 1; padding: 14px 18px; font-size: 13px; line-height: 1.4; border-top: 2px solid var(--color-divider);">The arm absorbs a hard contact and stays on task.</figcaption>
+          <figcaption style="flex: 1; padding: 14px 0 0; font-size: 13px; line-height: 1.4;">The arm absorbs a hard contact and stays on task.</figcaption>
         </figure>
-        <figure style="margin: 0; background: var(--color-bg); display: flex; flex-direction: column; height: 100%;">
+        <figure style="margin: 0; display: flex; flex-direction: column; height: 100%;">
           <div style="position: relative; aspect-ratio: 16 / 9; background: #000000;">
             <video src="videos/human-interaction.mp4" muted loop playsinline preload="metadata" data-loop="1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: grayscale(1) contrast(1.05);"></video>
           </div>
-          <figcaption style="flex: 1; padding: 14px 18px; font-size: 13px; line-height: 1.4; border-top: 2px solid var(--color-divider);">Working within arm&rsquo;s reach of a person, no fencing.</figcaption>
+          <figcaption style="flex: 1; padding: 14px 0 0; font-size: 13px; line-height: 1.4;">Working within arm&rsquo;s reach of a person, no fencing.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   <section id="ai" style="background: var(--color-mid); color: var(--color-mid-ink); border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-300);">Physical AI</div>
       <h2 style="margin: 18px 0 0; max-width: 26ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em; color: var(--color-mid-ink);">A specialist model, not a general-purpose one</h2>
-      <p style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">General-purpose robot foundation models and our model solve different problems. Ours is built for one job: reliable, contact-rich industrial manipulation. That narrowness is the point &mdash; it&rsquo;s how the model reaches production-grade reliability on a fraction of the data and compute.</p>
+      <p style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">General-purpose robot foundation models and our model solve different problems. Ours is built for one job: reliable, contact-rich industrial manipulation. That narrowness is the point &mdash; it&rsquo;s how the model reaches production-grade reliability on a fraction of the data and compute.</p>
 
       <div style="margin-top: clamp(32px, 4vw, 56px); border-top: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); padding: 28px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-mid-ink) 22%, transparent);">
@@ -282,22 +282,22 @@ section[id] { scroll-margin-top: 72px; }
         </table>
       </div>
 
-      <figure style="margin: clamp(32px, 4vw, 56px) 0 0; max-width: 560px; border: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">
+      <figure style="margin: clamp(32px, 4vw, 56px) 0 0; max-width: 560px;">
         <div style="position: relative; aspect-ratio: 16 / 9; background: #000000;">
           <video src="videos/todays-capability.mp4" muted loop playsinline preload="metadata" data-loop="1" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05);"></video>
         </div>
-        <figcaption style="padding: 14px 18px; font-size: 13px; line-height: 1.4; color: var(--color-mid-ink); border-top: 2px solid color-mix(in srgb, var(--color-mid-ink) 35%, transparent);">Skills demonstrated in production-class environments.</figcaption>
+        <figcaption style="padding: 14px 0 0; font-size: 13px; line-height: 1.4; color: var(--color-mid-ink);">Skills demonstrated in production-class environments.</figcaption>
       </figure>
 
-      <p style="margin: 28px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">The model, the training pipeline and the actuation it controls are developed under one roof. Capabilities reach customers as software updates on the robot they already have.</p>
+      <p style="margin: 28px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6; color: var(--color-mid-ink);">The model, the training pipeline and the actuation it controls are developed under one roof. Capabilities reach customers as software updates on the robot they already have.</p>
     </div>
   </section>
 
   <section id="robin" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Robin</div>
       <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Robin, in numbers</h2>
-      <p data-reveal="1" style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">Factory-default configuration. Two 7-DOF arms on an omni-directional base, with a motorized lifting column that matches human workstation heights. We publish these openly &mdash; you shouldn&rsquo;t have to email someone to find out whether a robot fits your station.</p>
+      <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Factory-default configuration. Two 7-DOF arms on an omni-directional base, with a motorized lifting column that matches human workstation heights. We publish these openly &mdash; you shouldn&rsquo;t have to email someone to find out whether a robot fits your station.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 2px; background: var(--color-divider); border: 2px solid var(--color-divider); margin-top: clamp(32px, 4vw, 56px);">
         <div style="background: var(--color-bg); padding: 24px 20px;">
@@ -334,7 +334,7 @@ section[id] { scroll-margin-top: 72px; }
         </div>
       </div>
 
-      <p style="margin: 28px 0 0; max-width: 78ch; font-size: 14px; line-height: 1.6;">Indoor, dry use. 10&ndash;32 &deg;C, IP20. Default parallel gripper with 150 mm stroke and swappable contact surfaces; a five-finger hand is available for dexterous work. Design references ISO 10218-1 and -2:2025, ISO 3691-4, ISO 12100, ISO 13849-1, IEC 62061 and IEC 60825-1 Class 1. Product safety certification is underway for each target market; units deployed before certification operate under a service agreement with Roboligent-trained personnel.</p>
+      <p style="margin: 28px 0 0; max-width: 90ch; font-size: 14px; line-height: 1.6;">Indoor, dry use. 10&ndash;32 &deg;C, IP20. Default parallel gripper with 150 mm stroke and swappable contact surfaces; a five-finger hand is available for dexterous work. Design references ISO 10218-1 and -2:2025, ISO 3691-4, ISO 12100, ISO 13849-1, IEC 62061 and IEC 60825-1 Class 1. Product safety certification is underway for each target market; units deployed before certification operate under a service agreement with Roboligent-trained personnel.</p>
       <div style="margin-top: 28px;">
         <a href="#contact" style="display: inline-block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); background: var(--color-band); padding: 14px 22px;" data-hv="3">Get the full spec sheet and site-readiness checklist</a>
       </div>
@@ -342,10 +342,10 @@ section[id] { scroll-margin-top: 72px; }
   </section>
 
   <section id="work" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Applications</div>
       <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 22ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Contact-rich handling work</h2>
-      <p data-reveal="1" style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">The capabilities are primitive skills that compose into workflows, so one robot covers many processes on the same site.</p>
+      <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">The capabilities are primitive skills that compose into workflows, so one robot covers many processes on the same site.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 2px; background: var(--color-divider); border: 2px solid var(--color-divider); margin-top: clamp(32px, 4vw, 56px);">
         <div data-reveal="1" style="background: var(--color-bg); padding: 32px 26px;">
@@ -370,7 +370,7 @@ section[id] { scroll-margin-top: 72px; }
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(32px, 4vw, 48px); padding-top: 28px; border-top: 2px solid var(--color-accent);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 56px); margin-top: clamp(32px, 4vw, 48px); padding-top: 28px; border-top: 2px solid var(--color-divider);">
         <div>
           <h3 style="margin: 0; font-size: 19px; letter-spacing: -0.015em;">Electronics, display and semiconductor</h3>
           <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6;">Chemical handling &mdash; picking a bottle, opening a sealed cap, pouring powder to a target weight by the gram. Precision placement where excessive grip force damages the part.</p>
@@ -386,10 +386,10 @@ section[id] { scroll-margin-top: 72px; }
   </section>
 
   <section id="service" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Subscription</div>
       <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 22ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">You don&rsquo;t buy a robot. You buy the work</h2>
-      <p data-reveal="1" style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">Robin is provided under a subscription service agreement rather than a one-time sale. No capital purchase, no integration contract, no depreciating asset if the task changes.</p>
+      <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Robin is provided under a subscription service agreement rather than a one-time sale. No capital purchase, no integration contract, no depreciating asset if the task changes.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 2px; background: var(--color-divider); border: 2px solid var(--color-divider); margin-top: clamp(32px, 4vw, 56px);">
         <div data-reveal="1" style="background: var(--color-neutral-100); padding: 30px 24px;">
@@ -419,16 +419,16 @@ section[id] { scroll-margin-top: 72px; }
           <li style="font-size: 15px; line-height: 1.5; padding: 12px 0; border-top: 1px solid var(--color-neutral-300);">Remote support, with on-site visits when remote diagnosis isn&rsquo;t enough</li>
           <li style="font-size: 15px; line-height: 1.5; padding: 12px 0; border-top: 1px solid var(--color-neutral-300);">Installation and commissioning of the initial deployment</li>
         </ul>
-        <p style="margin: 24px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">Fault codes and safety events are forwarded to our service team automatically. For registered units a ticket opens when the fault is logged &mdash; nobody has to file anything.</p>
+        <p style="margin: 24px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Fault codes and safety events are forwarded to our service team automatically. For registered units a ticket opens when the fault is logged &mdash; nobody has to file anything.</p>
       </div>
     </div>
   </section>
 
   <section style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Company</div>
       <h2 data-reveal="1" style="margin: 18px 0 0; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Where we are</h2>
-      <p data-reveal="1" style="margin: 22px 0 0; max-width: 62ch; font-size: 16px; line-height: 1.6;">Founded 2016 in Austin, Texas, out of research at UT Austin. Hardware, control software and the AI stack are built in-house &mdash; there&rsquo;s no third-party seam for a customer to manage.</p>
+      <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Founded 2016 in Austin, Texas, out of research at UT Austin. Hardware, control software and the AI stack are built in-house &mdash; there&rsquo;s no third-party seam for a customer to manage.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: clamp(24px, 4vw, 48px); margin-top: clamp(32px, 4vw, 56px);">
         <div data-reveal="1" style="border-top: 2px solid var(--color-text); padding-top: 16px;">
@@ -465,13 +465,13 @@ section[id] { scroll-margin-top: 72px; }
       </div>
 
       <div style="margin-top: clamp(32px, 4vw, 48px); padding-top: 28px; border-top: 2px solid var(--color-divider);">
-        <p style="margin: 0; max-width: 72ch; font-size: 16px; line-height: 1.6;"><strong>Designed, built and supported in Austin, Texas.</strong> Robin is assembled at our own facility in Round Rock, just outside Austin, by the same team that designs it. Service and engineering support come from that building, not from a distributor three time zones away.</p>
+        <p style="margin: 0; max-width: 92ch; font-size: 16px; line-height: 1.6; text-wrap: pretty;"><strong>Designed, built and supported in Austin, Texas.</strong> Robin is assembled at our own facility in Round Rock, just outside Austin, by the same team that designs it. Service and engineering support come from that building, not from a distributor three time zones away.</p>
       </div>
     </div>
   </section>
 
   <section id="careers" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px);">
       <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Careers</div>
       <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Five open roles</h2>
       <p data-reveal="1" style="margin: 22px 0 0; max-width: 58ch; font-size: 16px; line-height: 1.6;">Hardware, controls and AI sit in the same building in Round Rock. Everyone here touches something that ships to a customer.</p>
@@ -486,7 +486,7 @@ section[id] { scroll-margin-top: 72px; }
             <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Own the software that runs a fleet: mapping, navigation, task orchestration, demonstration recording and the browser panel operators work in. You will set the architecture and write the core of it, working next to the people who build the actuators and the control stack.</p>
             <div>
               <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Senior, hands-on. C++ and Python, ROS 2, distributed systems.</p>
-              <a href="mailto:info@roboligent.com?subject=Tech%20Lead%2C%20Robot%20Management%20System" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="5">Apply by email</a>
+              <a href="https://www.linkedin.com/jobs/view/4466112988/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="5">Apply on LinkedIn</a>
             </div>
           </div>
         </details>
@@ -499,7 +499,7 @@ section[id] { scroll-margin-top: 72px; }
             <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Real-time force control on our own hardware. You will own the control loop from actuator firmware to whole-body coordination, and the safety behavior that lets a robot work beside a person without fencing.</p>
             <div>
               <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Senior, hands-on. Real-time C++, impedance and force control, robot dynamics.</p>
-              <a href="mailto:info@roboligent.com?subject=Tech%20Lead%2C%20Robot%20Control" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="7">Apply by email</a>
+              <a href="https://www.linkedin.com/jobs/view/4466113901/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="7">Apply on LinkedIn</a>
             </div>
           </div>
         </details>
@@ -525,7 +525,7 @@ section[id] { scroll-margin-top: 72px; }
             <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Take a robot to a customer station and make it work there. Scope the task, commission the cell, teach the policies, train the operators, and bring back what development got wrong. Roughly monthly domestic travel, twice yearly international.</p>
             <div>
               <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Senior individual contributor, growing into field team lead. Comfortable being the only Roboligent person on site.</p>
-              <a href="mailto:info@roboligent.com?subject=Field%20Integration%20Engineer" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="11">Apply by email</a>
+              <a href="https://www.linkedin.com/jobs/view/4466116876/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="11">Apply on LinkedIn</a>
             </div>
           </div>
         </details>
@@ -538,7 +538,7 @@ section[id] { scroll-margin-top: 72px; }
             <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Build the quality function for our pilot production run: supplier quality as the anchor, incoming inspection, work instructions, and the yield data that tells us whether a design is ready to ship.</p>
             <div>
               <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Hardware quality in low-volume, high-complexity assembly. First quality hire, so you are setting the process, not inheriting it.</p>
-              <a href="mailto:info@roboligent.com?subject=Manufacturing%20Quality%20Engineer" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="13">Apply by email</a>
+              <a href="https://www.linkedin.com/jobs/view/4466129731/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="13">Apply on LinkedIn</a>
             </div>
           </div>
         </details>
@@ -549,7 +549,7 @@ section[id] { scroll-margin-top: 72px; }
   </section>
 
   <section id="contact" style="background: color-mix(in srgb, var(--color-accent) 22%, var(--color-bg)); color: var(--color-text);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 3.5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
       <div>
         <h2 style="margin: 0; max-width: 22ch; font-size: clamp(32px, 4.6vw, 62px); line-height: 1.0; letter-spacing: -0.03em; color: var(--color-text);">Bring us one station you&rsquo;ve been told can&rsquo;t be automated</h2>
         <p style="margin: 24px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-text);">If it&rsquo;s high-mix, hard to fixture, or too close to people to fence, that&rsquo;s the one we want to see. Send a photo and a cycle time and we&rsquo;ll tell you honestly whether Robin is the answer.</p>
@@ -584,7 +584,7 @@ section[id] { scroll-margin-top: 72px; }
   </section>
 
   <footer style="background: var(--color-band); color: var(--color-band-ink);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(40px, 5vw, 64px) 28px clamp(28px, 3vw, 40px);">
+    <div style="max-width: 1520px; margin: 0 auto; padding: clamp(40px, 5vw, 64px) clamp(24px, 3.5vw, 56px) clamp(28px, 3vw, 40px);">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: clamp(24px, 4vw, 48px);">
         <div>
           <img src="assets/roboligent-logo-light.png" alt="Roboligent" data-logo="band" style="display: block; height: 26px; width: auto;" />
