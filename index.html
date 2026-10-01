@@ -801,7 +801,7 @@ section[id] { scroll-margin-top: 72px; }
        pre-filled mail to info@roboligent.com, so nothing fails silently.
      FORM_ENDPOINT set    -> POST JSON to it (Formspree or equivalent) and
        keep the visitor on the page. Set the constant, nothing else. */
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/info@roboligent.com';
   var MAILBOX = 'info@roboligent.com';
 
   var form = document.getElementById('pilot-form');
@@ -830,7 +830,11 @@ section[id] { scroll-margin-top: 72px; }
       btn.disabled = true;
       btn.textContent = 'Sending…';
       var payload = {};
-      data.forEach(function (v, k) { if (k.charAt(0) !== '_') payload[k] = v; });
+      data.forEach(function (v, k) { if (k.charAt(0) !== '_' && k !== 'form-name') payload[k] = v; });
+      payload._subject = 'Website inquiry: ' + (data.get('topic') || 'General');
+      payload._template = 'table';
+      payload._captcha = 'false';
+      if (data.get('email')) payload._replyto = data.get('email');
       fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -838,6 +842,10 @@ section[id] { scroll-margin-top: 72px; }
       })
         .then(function (res) {
           if (!res.ok) throw new Error(res.status);
+          return res.json();
+        })
+        .then(function (j) {
+          if (j && String(j.success) === 'false') throw new Error(j.message);
           form.reset();
           btn.textContent = 'Sent';
           note.textContent = 'Thanks. We read every one of these and reply within two business days.';
