@@ -294,9 +294,9 @@ section[id] { scroll-margin-top: 72px; }
 
   <section id="robin" style="border-bottom: 2px solid var(--color-divider);">
     <div style="max-width: 1680px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 4vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(32px, 5vw, 80px); align-items: center;">
-      <figure style="margin: 0; width: 100%;">
-        <div style="aspect-ratio: 4 / 3; background: var(--color-neutral-200); overflow: hidden;">
-          <img src="assets/robin.jpg" alt="Robin, Roboligent's two-armed mobile robot" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; filter: grayscale(1) contrast(1.05);" />
+      <figure style="margin: 0 auto; width: 100%; max-width: min(520px, 64vh);">
+        <div style="aspect-ratio: 3 / 4; background: var(--color-neutral-200); overflow: hidden;">
+          <img src="assets/robin.jpg" alt="Robin, Roboligent's two-armed mobile robot" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: grayscale(1) contrast(1.05);" />
         </div>
       </figure>
       <div style="min-width: 0;">
@@ -602,11 +602,12 @@ section[id] { scroll-margin-top: 72px; }
     if (!spyLinks.length) return;
     var header = document.querySelector('header');
     var offset = (header ? header.getBoundingClientRect().height : 62) + 8;
-    var activeId = null;
-    spyLinks.forEach(function (a) {
-      var el = document.getElementById(a.getAttribute('href').slice(1));
-      if (el && el.getBoundingClientRect().top <= offset) activeId = a.getAttribute('href');
+    var activeId = null, cur = null;
+    document.querySelectorAll('section[id]').forEach(function (s) {
+      if (s.getBoundingClientRect().top <= offset) cur = '#' + s.id;
     });
+    if (cur === '#ai') cur = '#stack';
+    if (spyLinks.some(function (a) { return a.getAttribute('href') === cur; })) activeId = cur;
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
       activeId = spyLinks[spyLinks.length - 1].getAttribute('href');
     }
