@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Robin | Two-armed mobile robot by Roboligent</title>
+<meta name="description" content="Robin specs: two 7-DOF arms, omni-directional base, motorized lifting column, 120 mm parallel gripper. A Physical AI robot built to work safely beside people." />
+<link rel="canonical" href="https://roboligent.com/robin/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://roboligent.com/robin/" />
+<meta property="og:site_name" content="Roboligent" />
+<meta property="og:title" content="Robin | Two-armed mobile robot by Roboligent" />
+<meta property="og:description" content="Robin specs: two 7-DOF arms, omni-directional base, motorized lifting column, 120 mm parallel gripper. A Physical AI robot built to work safely beside people." />
+<meta property="og:image" content="https://roboligent.com/assets/og-image.png?v=3" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#f8fafc" />
+<link rel="icon" href="../assets/favicon-navy.png" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon-navy.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&amp;display=swap" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+/* default (emerald) theme, so the right design paints on the first frame;
+     applyTheme() only overrides these when a different theme is selected */
+  :root {
+    --color-bg: #f8fafc; --color-text: #0f172a; --color-divider: #0f172a;
+    --color-neutral-100: #eef2f7; --color-neutral-200: #e2e8f0;
+    --color-neutral-300: #cbd5e1; --color-neutral-700: #334155;
+    --color-band: #0f172a; --color-band-ink: #f8fafc;
+  --color-mid: #1b2637; --color-mid-ink: #f8fafc; --color-on-accent: #0f172a;
+    --color-accent: #6ee7bd; --color-accent-fill: #6ee7bd;
+    --color-accent-300: #6ee7bd; --color-accent-600: #46cfa2; --color-accent-700: #0f172a;
+    --color-accent-2: #6ee7bd; --color-accent-2-300: #6ee7bd;
+    --color-accent-2-600: #46cfa2; --color-accent-2-700: #0f172a;
+    --color-danger: #c2410c;
+  }
+  body { background: #f8fafc; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  a { color: var(--color-text); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--color-neutral-700); }
+  ::selection { background: var(--color-accent); color: var(--color-on-accent); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--font-heading); font-weight: 800; font-size: 20px; line-height: 1; color: var(--color-accent-700); padding-left: 16px; }
+  details[open] summary::after { content: "\2013"; }
+  summary:focus-visible { outline: 2px solid var(--color-accent-700); outline-offset: 2px; }
+  input[type=range] { accent-color: var(--color-accent-300); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+/* the sticky header sits at ~62px; anchors need to clear it */
+section[id] { scroll-margin-top: 72px; }
+
+/* hover states lifted out of the source markup */
+[data-hv="0"]:hover { background: var(--color-accent-600); }
+[data-hv="1"]:hover { background: var(--color-accent-600); }
+[data-hv="2"]:hover { background: color-mix(in srgb, var(--color-band-ink) 12%, transparent); }
+[data-hv="3"]:hover { background: var(--color-accent); color: var(--color-text); }
+[data-hv="4"]:hover { background: var(--color-neutral-100); }
+[data-hv="5"]:hover { background: var(--color-accent-600); }
+[data-hv="6"]:hover { background: var(--color-neutral-100); }
+[data-hv="7"]:hover { background: var(--color-accent-600); }
+[data-hv="8"]:hover { background: var(--color-neutral-100); }
+[data-hv="9"]:hover { background: var(--color-accent-600); }
+[data-hv="10"]:hover { background: var(--color-neutral-100); }
+[data-hv="11"]:hover { background: var(--color-accent-600); }
+[data-hv="12"]:hover { background: var(--color-neutral-100); }
+[data-hv="13"]:hover { background: var(--color-accent-600); }
+[data-hv="14"]:hover { background: var(--color-accent-600); }
+[data-hv="15"]:hover { background: var(--color-neutral-100); }
+[data-hv="16"]:hover { background: var(--color-neutral-700); }
+[data-hv="17"]:hover { color: var(--color-accent-300); }
+</style>
+</head>
+<body>
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body);">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: var(--color-bg); border-bottom: 2px solid var(--color-divider);">
+    <div style="max-width: 1680px; margin: 0 auto; padding: 8px clamp(24px, 4vw, 72px); display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px; min-height: 56px;">
+      <a href="../" style="display: flex; align-items: center; margin-right: auto; order: 0; text-decoration: none;"><img src="../assets/roboligent-logo-dark.png" alt="Roboligent" data-logo="1" style="display: block; height: 24px; width: auto;" /></a>
+      <nav id="nav" style="order: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0 20px;">
+        <a href="../robin/" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-text);">Robin</a>
+        <a href="../#stack" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Technology</a>
+        <a href="../#work" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Applications</a>
+        <a href="../#company" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Company</a>
+        <a href="../careers/" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Careers</a>
+        <a id="drawercta" href="#contact" style="display: none; margin: 10px 0 14px; padding: 15px 18px; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-align: center; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill);">Contact us</a>
+      </nav>
+      <div style="order: 2; display: flex; align-items: center; gap: 10px;">
+        <a id="hdrcta" href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 18px;" data-hv="0">Contact us</a>
+        <button id="menubtn" type="button" aria-expanded="false" style="display: none; font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text); background: transparent; border: 1px solid var(--color-divider); padding: 14px 16px; cursor: pointer;" data-hv="15">Menu</button>
+      </div>
+    </div>
+    <div data-spy-track style="height: 2px; background: color-mix(in srgb, var(--color-text) 12%, transparent); display: none;">
+      <div data-spy-bar style="height: 100%; width: 0%; background: var(--color-text);"></div>
+    </div>
+  </header>
+
+  <section style="background: var(--color-band); color: var(--color-band-ink); border-bottom: 2px solid var(--color-divider);">
+    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) clamp(24px, 4vw, 72px); display: flex; flex-direction: column; align-items: flex-start; gap: 20px;">
+      <span style="font-family: var(--font-heading); font-weight: 800; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-300); border: 1px solid var(--color-accent-300); padding: 6px 12px;">Product</span>
+      <h1 style="margin: 0; font-size: clamp(44px, 6vw, 88px); line-height: 0.98; letter-spacing: -0.03em; color: var(--color-band-ink);">Robin</h1>
+      <p style="margin: 0; max-width: 56ch; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--color-band-ink);">A two-armed mobile robot with soft actuation and real-time force control, built to share the floor with your team, safely and on day one.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px;">
+        <a href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 22px;">Talk to us</a>
+        <a href="#robin" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); border: 1px solid color-mix(in srgb, var(--color-band-ink) 60%, transparent); padding: 13px 21px;">See specs</a>
+      </div>
+    </div>
+  </section>
+  <section id="robin" style="border-bottom: 2px solid var(--color-divider);">
+    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 4vw, 72px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(32px, 5vw, 80px); align-items: center;">
+        <figure style="margin: 0 auto; width: 100%; max-width: min(560px, 58vh);">
+          <div style="aspect-ratio: 3 / 4; background: var(--color-neutral-200); overflow: hidden;">
+            <img src="../assets/robin.jpg" alt="Robin, Roboligent's two-armed mobile robot" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: grayscale(1) contrast(1.05);" />
+          </div>
+        </figure>
+        <div style="min-width: 0;">
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Robin</div>
+          <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Specs</h2>
+          <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Factory-default configuration. Two 7-DOF arms on an omni-directional base, with a motorized lifting column that matches human workstation heights.</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(25% - 1px, (560px - 100%) * 999, 50% - 1px), 1fr)); gap: 0; margin: clamp(28px, 3vw, 40px) 1px 0;">
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">7 / 14 kg</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Payload, single arm / dual arm</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">1,000 mm</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Maximum reach per arm</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">Floor to 2 m</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Pick-and-place height range, on the motorized lifting column</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">0.6 m/s</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Software-limited from 1.2 m/s for operation around people</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">6&ndash;12 hr</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Typical runtime, depending on battery option</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">105 kg</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Total weight, 680 &times; 600 mm footprint</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">&lt; 0.1 N</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">End-effector force sensitivity</div>
+            </div>
+            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">100,000</div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Validation cycles with no measured degradation</div>
+            </div>
+
+        </div>
+      </div>
+      </div>
+      <ul style="margin: clamp(32px, 4vw, 48px) 0 0; padding: 0 0 0 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); font-size: 14px; line-height: 1.55;">
+        <li>Indoor, dry use. 10&ndash;32 &deg;C, IP20</li>
+        <li>Parallel gripper, 120 mm stroke, swappable contact surfaces</li>
+        <li>Five-finger hand available for dexterous work</li>
+        <li>Design references ISO 10218-1/-2:2025, ISO 3691-4, ISO 12100, ISO 13849-1, IEC 62061, IEC 60825-1 Class 1</li>
+        <li>Safety certification underway for each target market</li>
+        <li>Pre-certification units run under a service agreement with Roboligent-trained personnel</li>
+      </ul>
+      <div style="margin-top: 28px;">
+        <a href="#contact" style="display: inline-block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); background: var(--color-band); padding: 14px 22px;" data-hv="3">Contact us for the full spec sheet and site-readiness checklist</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" style="background: color-mix(in srgb, var(--color-accent) 22%, var(--color-bg)); color: var(--color-text);">
+    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 4vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center;">
+      <div>
+        <h2 style="margin: 0; max-width: 22ch; font-size: clamp(32px, 4.6vw, 62px); line-height: 1.0; letter-spacing: -0.03em; color: var(--color-text);">Tell us what you want to automate</h2>
+        <p style="margin: 24px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.6; color: var(--color-text);">Pilots, spec sheets, partnerships or general questions. Send us a message and we&rsquo;ll reply within two business days.</p>
+        <div style="margin-top: 28px; padding-top: 22px; border-top: 2px solid color-mix(in srgb, var(--color-text) 55%, transparent); font-size: 15px; line-height: 1.7; color: var(--color-text);">
+          2712 Meister Place, Round Rock, TX 78664<br />
+          <a href="mailto:info@roboligent.com" style="color: var(--color-text);">info@roboligent.com</a><br />
+          <a href="tel:+15127030454" style="color: var(--color-text);">+1 512-703-0454</a>
+        </div>
+      </div>
+      <form id="pilot-form" name="pilot" method="POST" style="background: var(--color-bg); color: var(--color-text); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Contact us</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 18px;">
+          <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Name
+            <input class="input" type="text" name="name" required style="font-size: 15px; background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);" />
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Company
+            <input class="input" type="text" name="company" style="font-size: 15px; background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);" />
+          </label>
+        </div>
+        <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Work email
+          <input class="input" type="email" name="email" required style="font-size: 15px; background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);" />
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Topic
+          <select class="input" name="topic" style="font-size: 15px; font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);">
+            <option>Contact us</option>
+            <option>Spec sheet</option>
+            <option>Partnership</option>
+            <option>Press</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Message
+          <textarea class="input" name="message" rows="4" placeholder="Tell us about your current workflow and what you want to automate." style="font-size: 15px; resize: vertical; font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);"></textarea>
+        </label>
+        <input type="hidden" name="form-name" value="pilot" />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" />
+        <button type="submit" style="align-self: flex-start; font-family: var(--font-heading); font-weight: 800; font-size: 14px; color: var(--color-text); background: var(--color-accent); border: 0; padding: 14px 22px; cursor: pointer; text-align: left;" data-hv="14">Send</button>
+        <p data-form-note style="margin: 0; font-size: 12px; line-height: 1.5; color: var(--color-neutral-700);">We reply within two business days. No newsletter, no sales sequence.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer style="background: var(--color-band); color: var(--color-band-ink);">
+    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 72px) clamp(28px, 3vw, 40px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: clamp(24px, 4vw, 48px);">
+        <div>
+          <img src="../assets/roboligent-logo-light.png" alt="Roboligent" data-logo="band" style="display: block; height: 26px; width: auto;" />
+          <div style="margin-top: 14px; font-size: 14px; line-height: 1.7;">2712 Meister Place<br />Round Rock, TX 78664<br /><a href="mailto:info@roboligent.com" style="color: var(--color-accent-300);">info@roboligent.com</a><br /><a href="tel:+15127030454" style="color: var(--color-accent-300);">+1 512-703-0454</a></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-band-ink);">Product</div>
+          <a href="../robin/" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Robin</a>
+          <a href="../#stack" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">The stack</a>
+          <a href="../#ai" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Physical AI</a>
+          <a href="../#work" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Applications</a>
+          <a href="../#service" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Subscription</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-band-ink);">Company</div>
+          <a href="../#company" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">About</a>
+          <a href="../careers/" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Careers</a>
+          <a href="#contact" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Contact</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-band-ink);">Follow</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-left: -10px;">
+          <a href="https://www.linkedin.com/company/roboligent/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--color-band-ink); text-decoration: none;" data-hv="17">
+            <span aria-hidden="true" style="display: block; width: 17px; height: 17px; background: currentColor; -webkit-mask-image: url(../assets/social/linkedin.png); mask-image: url(../assets/social/linkedin.png); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center;"></span>
+          </a>
+          <a href="https://www.youtube.com/channel/UCSMhQj6S2LUVEAKKUxdcQhw" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--color-band-ink); text-decoration: none;" data-hv="17">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+          </a>
+          <a href="https://x.com/Roboligent" target="_blank" rel="noopener" aria-label="X" title="X" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--color-band-ink); text-decoration: none;" data-hv="17">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/roboligent/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--color-band-ink); text-decoration: none;" data-hv="17">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"></path></svg>
+          </a>
+          <a href="https://www.facebook.com/roboligent/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--color-band-ink); text-decoration: none;" data-hv="17">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"></path></svg>
+          </a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: clamp(28px, 3vw, 40px); padding-top: 18px; border-top: 2px solid color-mix(in srgb, var(--color-band-ink) 35%, transparent); font-size: 12px; line-height: 1.5;">&copy; 2026 Roboligent, Inc. Robin&trade; and Roboligent&trade; are trademarks of Roboligent, Inc. Designed and built in Austin, Texas, USA.</div>
+    </div>
+  </footer>
+
+</div>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* videos: muted, and only playing while on screen */
+  var vids = [].slice.call(document.querySelectorAll('video[data-loop]'));
+  vids.forEach(function (v) { v.muted = true; v.defaultMuted = true; });
+  if ('IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.play().catch(function () {}); } else { e.target.pause(); }
+      });
+    }, { threshold: 0.2 });
+    vids.forEach(function (v) { vio.observe(v); });
+  } else {
+    vids.forEach(function (v) { v.play().catch(function () {}); });
+  }
+
+  /* header: the nav collapses behind a Menu button under 900px. same nodes
+     either way — only the container switches, so there is no duplicate markup. */
+  var navEl = document.getElementById('nav');
+  var menuBtn = document.getElementById('menubtn');
+  var NARROW_AT = 1080;
+  var menuOpen = false;
+  var NAV_ROW = 'order: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0 20px;';
+  var NAV_HID = 'order: 3; display: none;';
+  var NAV_COL = 'order: 3; display: flex; flex-direction: column; align-items: stretch; width: 100%; gap: 0; margin-top: 2px; border-top: 2px solid var(--color-divider);';
+  function setMenu(open) {
+    menuOpen = open;
+    menuBtn.textContent = open ? 'Close' : 'Menu';
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  /* under NARROW_AT the header CTA would wrap onto its own line next to Menu,
+     which reads as a stray pair of buttons. Hide it there and let the drawer
+     carry the CTA instead, so the bar stays logo-left / Menu-right. */
+  var hdrCta = document.getElementById('hdrcta');
+  var drawerCta = document.getElementById('drawercta');
+  function paintNav() {
+    var narrow = window.innerWidth < NARROW_AT;
+    menuBtn.style.display = narrow ? 'block' : 'none';
+    if (hdrCta) hdrCta.style.display = narrow ? 'none' : 'block';
+    if (drawerCta) drawerCta.style.display = narrow ? 'block' : 'none';
+    if (!narrow) { if (menuOpen) setMenu(false); navEl.setAttribute('style', NAV_ROW); return; }
+    navEl.setAttribute('style', menuOpen ? NAV_COL : NAV_HID);
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!menuOpen); paintNav(); });
+  navEl.addEventListener('click', function (e) {
+    if (menuOpen && e.target.closest('a')) { setMenu(false); paintNav(); }
+  });
+  /* position feedback for a long single page: the active section's header link
+     takes a rule below it, and under the breakpoint — where the nav sits behind
+     the Menu button — a progress line under the header stands in. */
+  var spyLinks = Array.prototype.slice.call(document.querySelectorAll('header nav a[href^="#"]'));
+  var spyTrack = document.querySelector('[data-spy-track]');
+  var spyBar = document.querySelector('[data-spy-bar]');
+  var spyRaf = null;
+  function paintSpy() {
+    if (!spyLinks.length) return;
+    var header = document.querySelector('header');
+    var offset = (header ? header.getBoundingClientRect().height : 62) + 8;
+    var activeId = null;
+    spyLinks.forEach(function (a) {
+      var el = document.getElementById(a.getAttribute('href').slice(1));
+      if (el && el.getBoundingClientRect().top <= offset) activeId = a.getAttribute('href');
+    });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+      activeId = spyLinks[spyLinks.length - 1].getAttribute('href');
+    }
+    spyLinks.forEach(function (a) {
+      a.style.borderBottomColor = a.getAttribute('href') === activeId ? 'var(--color-text)' : 'transparent';
+    });
+    if (spyTrack && spyBar) {
+      var narrow = window.innerWidth < NARROW_AT;
+      spyTrack.style.display = narrow ? 'block' : 'none';
+      if (narrow) {
+        var max = document.body.scrollHeight - window.innerHeight;
+        var pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+        spyBar.style.width = pct.toFixed(2) + '%';
+      }
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (spyRaf) return;
+    spyRaf = requestAnimationFrame(function () { spyRaf = null; paintSpy(); });
+  }, { passive: true });
+
+  window.addEventListener('resize', function () { paintNav(); paintSpy(); });
+  paintNav();
+  paintSpy();
+
+  /* subtle reveals */
+  var els = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!reduce && 'IntersectionObserver' in window) {
+    els.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(14px)';
+      el.style.transition = 'opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1)';
+    });
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        rio.unobserve(e.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { rio.observe(el); });
+  }
+
+  /* impact-force diagram: illustrative 10:1 ratio, not test data */
+  var RATIO = 0.10;
+  var slider = document.getElementById('rig-speed');
+  var bars = document.querySelectorAll('[data-bar]');
+  var touched = false, sweep;
+  function draw(v) {
+    if (bars[0]) bars[0].style.height = Math.min(100, v) + '%';
+    if (bars[1]) bars[1].style.height = Math.min(100, v * RATIO) + '%';
+  }
+  if (slider) {
+    slider.addEventListener('input', function () { touched = true; clearInterval(sweep); draw(+slider.value); });
+    /* gate the sweep on the rig entering view — ungated it finishes in 1.6s,
+       long before the visitor scrolls this far */
+    function startSweep() {
+      if (sweep || touched) return;
+      var n = 0;
+      sweep = setInterval(function () {
+        if (touched) { clearInterval(sweep); return; }
+        n = Math.min(88, n + 1.4);
+        slider.value = n; draw(n);
+        if (n >= 88) clearInterval(sweep);
+      }, 26);
+    }
+    if (!reduce) {
+      if ('IntersectionObserver' in window) {
+        var sio = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            sio.unobserve(e.target);
+            startSweep();
+          });
+        }, { threshold: 0.6 });
+        sio.observe(slider);
+      } else {
+        startSweep();
+      }
+    }
+  }
+
+  /* contact form.
+     FORM_ENDPOINT empty  -> no backend (GitHub Pages): submit composes a
+       pre-filled mail to info@roboligent.com, so nothing fails silently.
+     FORM_ENDPOINT set    -> POST JSON to it (Formspree or equivalent) and
+       keep the visitor on the page. Set the constant, nothing else. */
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/info@roboligent.com';
+  var MAILBOX = 'info@roboligent.com';
+
+  var form = document.getElementById('pilot-form');
+  if (form) {
+    var btn = form.querySelector('button[type=submit]');
+    var note = form.querySelector('[data-form-note]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      if (data.get('_gotcha')) return;
+
+      if (!FORM_ENDPOINT) {
+        var lines = [];
+        data.forEach(function (v, k) {
+          if (k.charAt(0) === '_' || !String(v).trim()) return;
+          lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ': ' + v);
+        });
+        window.location.href = 'mailto:' + MAILBOX +
+          '?subject=' + encodeURIComponent('Website inquiry: ' + (data.get('topic') || 'General')) +
+          '&body=' + encodeURIComponent(lines.join('\n'));
+        note.textContent = 'Opening your mail app. Send the message and we will reply within two business days.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      var payload = {};
+      data.forEach(function (v, k) { if (k.charAt(0) !== '_' && k !== 'form-name') payload[k] = v; });
+      payload._subject = 'Website inquiry: ' + (data.get('topic') || 'General');
+      payload._template = 'table';
+      payload._captcha = 'false';
+      if (data.get('email')) payload._replyto = data.get('email');
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.status);
+          return res.json();
+        })
+        .then(function (j) {
+          if (j && String(j.success) === 'false') throw new Error(j.message);
+          form.reset();
+          btn.textContent = 'Sent';
+          note.textContent = 'Thanks. We read every one of these and reply within two business days.';
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Try again';
+          note.textContent = 'That did not go through. Email ' + MAILBOX + ' and we will pick it up there.';
+        });
+    });
+  }
+})();
+</script>
+<script>
+/* local preview has no directory index: point folder links at index.html there; production keeps clean URLs */
+if (!/roboligent\.com$/.test(location.hostname)) {
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (/^(https?:|mailto:|tel:|#)/.test(h)) return;
+    var m = h.match(/^([^#]*\/)(#.*)?$/);
+    if (m) a.setAttribute('href', m[1] + 'index.html' + (m[2] || ''));
+  });
+}
+</script>
+</body>
+</html>
