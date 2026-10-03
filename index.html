@@ -85,17 +85,15 @@ section[id] { scroll-margin-top: 72px; }
     <div style="max-width: 1680px; margin: 0 auto; padding: 8px clamp(24px, 4vw, 72px); display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px; min-height: 56px;">
       <a href="#top" style="display: flex; align-items: center; margin-right: auto; order: 0; text-decoration: none;"><img src="assets/roboligent-logo-dark.png" alt="Roboligent" data-logo="1" style="display: block; height: 24px; width: auto;" /></a>
       <nav id="nav" style="order: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0 20px;">
-        <a href="#stack" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Stack</a>
-        <a href="#ai" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Physical AI</a>
-        <a href="#robin" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Robin</a>
+        <a href="robin/" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Robin</a>
+        <a href="#stack" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Technology</a>
         <a href="#work" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Applications</a>
-        <a href="#service" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Subscription</a>
         <a href="#company" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Company</a>
-        <a href="#careers" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Careers</a>
-        <a id="drawercta" href="#contact" style="display: none; margin: 10px 0 14px; padding: 15px 18px; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-align: center; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill);">Start a pilot</a>
+        <a href="careers/" style="display: block; padding: 13px 0; font-size: 15px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid transparent;">Careers</a>
+        <a id="drawercta" href="#contact" style="display: none; margin: 10px 0 14px; padding: 15px 18px; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-align: center; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill);">Contact us</a>
       </nav>
       <div style="order: 2; display: flex; align-items: center; gap: 10px;">
-        <a id="hdrcta" href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 18px;" data-hv="0">Start a pilot</a>
+        <a id="hdrcta" href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 18px;" data-hv="0">Contact us</a>
         <button id="menubtn" type="button" aria-expanded="false" style="display: none; font-family: var(--font-heading); font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text); background: transparent; border: 1px solid var(--color-divider); padding: 14px 16px; cursor: pointer;" data-hv="15">Menu</button>
       </div>
     </div>
@@ -119,7 +117,7 @@ section[id] { scroll-margin-top: 72px; }
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
         <p style="margin: 0; max-width: 52ch; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--color-band-ink);">We build the soft actuation, the real-time force control, and the AI that runs on them. Robin is what happens when all three are designed together: a two-armed mobile robot that works safely beside people, without a cage.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-          <a href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 22px;" data-hv="1">Start a pilot</a>
+          <a href="#contact" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 14px 22px;" data-hv="1">Contact us</a>
           <a href="#ai" style="font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); border: 1px solid color-mix(in srgb, var(--color-band-ink) 55%, transparent); padding: 14px 22px;" data-hv="2">See the AI stack</a>
         </div>
       </div>
@@ -295,66 +293,20 @@ section[id] { scroll-margin-top: 72px; }
   </section>
 
   <section id="robin" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 4vw, 72px);">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(32px, 5vw, 80px); align-items: center;">
-        <figure style="margin: 0 auto; width: 100%; max-width: 560px;">
-          <div style="aspect-ratio: 3 / 4; max-height: 78vh; background: var(--color-neutral-200); overflow: hidden;">
-            <img src="assets/robin.jpg" alt="Robin, Roboligent's two-armed mobile robot" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: grayscale(1) contrast(1.05);" />
-          </div>
-        </figure>
-        <div style="min-width: 0;">
-          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Robin</div>
-          <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Robin specs</h2>
-          <p data-reveal="1" style="margin: 22px 0 0; max-width: 74ch; font-size: 16px; line-height: 1.6;">Factory-default configuration. Two 7-DOF arms on an omni-directional base, with a motorized lifting column that matches human workstation heights.</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(25% - 1px, (560px - 100%) * 999, 50% - 1px), 1fr)); gap: 0; margin: clamp(28px, 3vw, 40px) 1px 0;">
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">7 / 14 kg</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Payload, single arm / dual arm</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">1,000 mm</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Maximum reach per arm</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">Floor to 2 m</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Pick-and-place height range, on the motorized lifting column</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">0.6 m/s</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Software-limited from 1.2 m/s for operation around people</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">6&ndash;12 hr</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Typical runtime, depending on battery option</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">105 kg</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Total weight, 680 &times; 600 mm footprint</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">&lt; 0.1 N</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">End-effector force sensitivity</div>
-            </div>
-            <div style="background: var(--color-bg); padding: 20px 16px; box-shadow: 0 0 0 1px var(--color-divider);">
-              <div style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 1.7vw, 24px); letter-spacing: -0.025em;">100,000</div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">Validation cycles with no measured degradation</div>
-            </div>
-
+    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 4vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(32px, 5vw, 80px); align-items: center;">
+      <figure style="margin: 0; width: 100%;">
+        <div style="aspect-ratio: 4 / 3; background: var(--color-neutral-200); overflow: hidden;">
+          <img src="assets/robin.jpg" alt="Robin, Roboligent's two-armed mobile robot" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; filter: grayscale(1) contrast(1.05);" />
+        </div>
+      </figure>
+      <div style="min-width: 0;">
+        <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Robin</div>
+        <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Meet Robin</h2>
+        <p data-reveal="1" style="margin: 22px 0 0; max-width: 58ch; font-size: 16px; line-height: 1.6;">Two 7-DOF arms on an omni-directional base, with a motorized lifting column that matches human workstation heights. Built to share the floor with your team.</p>
+        <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="robin/" style="display: inline-block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); background: var(--color-text); padding: 14px 22px;">Specs and details</a>
         </div>
       </div>
-      </div>
-      <ul style="margin: clamp(32px, 4vw, 48px) 0 0; padding: 0 0 0 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); font-size: 14px; line-height: 1.55;">
-        <li>Indoor, dry use. 10&ndash;32 &deg;C, IP20</li>
-        <li>Parallel gripper, 120 mm stroke, swappable contact surfaces</li>
-        <li>Five-finger hand available for dexterous work</li>
-        <li>Design references ISO 10218-1/-2:2025, ISO 3691-4, ISO 12100, ISO 13849-1, IEC 62061, IEC 60825-1 Class 1</li>
-        <li>Safety certification underway for each target market</li>
-        <li>Pre-certification units run under a service agreement with Roboligent-trained personnel</li>
-      </ul>
-      <div style="margin-top: 28px;">
-        <a href="#contact" style="display: inline-block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); background: var(--color-band); padding: 14px 22px;" data-hv="3">Contact us for the full spec sheet and site-readiness checklist</a>
-      </div>
-
     </div>
   </section>
 
@@ -489,80 +441,13 @@ section[id] { scroll-margin-top: 72px; }
   </section>
 
   <section id="careers" style="border-bottom: 2px solid var(--color-divider);">
-    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(24px, 4vw, 72px);">
-      <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Careers</div>
-      <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Open roles</h2>
-      <p data-reveal="1" style="margin: 22px 0 0; max-width: 58ch; font-size: 16px; line-height: 1.6;">Hardware, controls and AI sit in the same building in Round Rock. Everyone here touches something that ships to a customer.</p>
-
-      <div style="margin-top: clamp(32px, 4vw, 48px); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);">
-        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
-          <summary style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="4">
-            <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Tech Lead, Robot Management System</span>
-            <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
-          </summary>
-          <div style="padding: 0 0 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); align-items: start;">
-            <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Own the software that runs a fleet: mapping, navigation, task orchestration, demonstration recording and the browser panel operators work in. You will set the architecture and write the core of it, working next to the people who build the actuators and the control stack.</p>
-            <div>
-              <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Senior, hands-on. C++ and Python, ROS 2, distributed systems.</p>
-              <a href="https://www.linkedin.com/jobs/view/4466112988/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="5">Apply on LinkedIn</a>
-            </div>
-          </div>
-        </details>
-        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
-          <summary style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="6">
-            <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Tech Lead, Robot Control</span>
-            <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
-          </summary>
-          <div style="padding: 0 0 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); align-items: start;">
-            <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Real-time force control on our own hardware. You will own the control loop from actuator firmware to whole-body coordination, and the safety behavior that lets a robot work beside a person without fencing.</p>
-            <div>
-              <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Senior, hands-on. Real-time C++, impedance and force control, robot dynamics.</p>
-              <a href="https://www.linkedin.com/jobs/view/4466113901/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="7">Apply on LinkedIn</a>
-            </div>
-          </div>
-        </details>
-        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
-          <summary style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="8">
-            <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">AI Engineer, Robot Data and Evaluation</span>
-            <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
-          </summary>
-          <div style="padding: 0 0 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); align-items: start;">
-            <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Own the data loop behind our manipulation model: how demonstrations are captured and curated, how policies are trained, and how we decide whether a policy is good enough to run on a customer floor.</p>
-            <div>
-              <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Python, PyTorch, imitation learning. Evaluation discipline matters more than model novelty here.</p>
-              <a href="https://www.linkedin.com/jobs/view/4465470001/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="9">Apply on LinkedIn</a>
-            </div>
-          </div>
-        </details>
-        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
-          <summary style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="10">
-            <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Field Integration Engineer</span>
-            <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site, with travel</span>
-          </summary>
-          <div style="padding: 0 0 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); align-items: start;">
-            <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Take a robot to a customer station and make it work there. Scope the task, commission the cell, teach the policies, train the operators, and bring back what development got wrong. Roughly monthly domestic travel, twice yearly international.</p>
-            <div>
-              <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Senior individual contributor, growing into field team lead. Comfortable being the only Roboligent person on site.</p>
-              <a href="https://www.linkedin.com/jobs/view/4466116876/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="11">Apply on LinkedIn</a>
-            </div>
-          </div>
-        </details>
-        <details style="border-bottom: 1px solid color-mix(in srgb, var(--color-divider) 30%, transparent);">
-          <summary style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 24px; padding: 22px 0; cursor: pointer; list-style: none;" data-hv="12">
-            <span style="font-family: var(--font-heading); font-weight: 800; font-size: clamp(18px, 2vw, 23px); letter-spacing: -0.015em;">Manufacturing Quality Engineer</span>
-            <span style="font-size: 13px; color: var(--color-neutral-700);">Round Rock, TX &middot; On-site</span>
-          </summary>
-          <div style="padding: 0 0 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 8px clamp(24px, 4vw, 56px); align-items: start;">
-            <p style="margin: 0; font-size: 15px; line-height: 1.6; max-width: 56ch;">Build the quality function for our pilot production run: supplier quality as the anchor, incoming inspection, work instructions, and the yield data that tells us whether a design is ready to ship.</p>
-            <div>
-              <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-neutral-700);">Hardware quality in low-volume, high-complexity assembly. First quality hire, so you are setting the process, not inheriting it.</p>
-              <a href="https://www.linkedin.com/jobs/view/4466129731/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 16px; font-family: var(--font-heading); font-weight: 800; font-size: 13px; text-decoration: none; color: var(--color-on-accent); background: var(--color-accent-fill); padding: 11px 18px;" data-hv="13">Apply on LinkedIn</a>
-            </div>
-          </div>
-        </details>
+    <div style="max-width: 1680px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 72px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px;">
+      <div style="min-width: 0;">
+        <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700);">Careers</div>
+        <h2 data-reveal="1" style="margin: 18px 0 0; max-width: 20ch; font-size: clamp(30px, 4.4vw, 58px); line-height: 1.02; letter-spacing: -0.03em;">Open roles</h2>
+        <p data-reveal="1" style="margin: 22px 0 0; max-width: 58ch; font-size: 16px; line-height: 1.6;">Hardware, controls and AI sit in the same building in Round Rock. Everyone here touches something that ships to a customer.</p>
       </div>
-
-      <p style="margin: 28px 0 0; font-size: 15px; line-height: 1.6;">Each role is also posted on <a href="https://www.linkedin.com/company/roboligent/jobs/" target="_blank" rel="noopener">LinkedIn</a>. Don&rsquo;t see yours? Tell us what you&rsquo;d build here: <a href="mailto:info@roboligent.com">info@roboligent.com</a></p>
+      <a href="careers/" style="display: inline-block; font-family: var(--font-heading); font-weight: 800; font-size: 14px; text-decoration: none; color: var(--color-band-ink); background: var(--color-text); padding: 14px 22px;">See open roles</a>
     </div>
   </section>
 
@@ -592,7 +477,7 @@ section[id] { scroll-margin-top: 72px; }
         </label>
         <label style="display: flex; flex-direction: column; gap: 7px; font-size: 13px;">Topic
           <select class="input" name="topic" style="font-size: 15px; font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); border: 1px solid var(--color-divider);">
-            <option>Start a pilot</option>
+            <option>Contact us</option>
             <option>Spec sheet</option>
             <option>Partnership</option>
             <option>Press</option>
@@ -619,7 +504,7 @@ section[id] { scroll-margin-top: 72px; }
         </div>
         <div style="display: flex; flex-direction: column; gap: 8px;">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-band-ink);">Product</div>
-          <a href="#robin" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Robin</a>
+          <a href="robin/" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Robin</a>
           <a href="#stack" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">The stack</a>
           <a href="#ai" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Physical AI</a>
           <a href="#work" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Applications</a>
@@ -628,7 +513,7 @@ section[id] { scroll-margin-top: 72px; }
         <div style="display: flex; flex-direction: column; gap: 8px;">
           <div style="font-family: var(--font-heading); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-band-ink);">Company</div>
           <a href="#company" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">About</a>
-          <a href="#careers" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Careers</a>
+          <a href="careers/" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Careers</a>
           <a href="#contact" style="font-size: 14px; text-decoration: none; color: var(--color-band-ink);">Contact</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -867,6 +752,17 @@ section[id] { scroll-margin-top: 72px; }
     });
   }
 })();
+</script>
+<script>
+/* local preview has no directory index: point folder links at index.html there; production keeps clean URLs */
+if (!/roboligent\.com$/.test(location.hostname)) {
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (/^(https?:|mailto:|tel:|#)/.test(h)) return;
+    var m = h.match(/^([^#]*\/)(#.*)?$/);
+    if (m) a.setAttribute('href', m[1] + 'index.html' + (m[2] || ''));
+  });
+}
 </script>
 </body>
 </html>
